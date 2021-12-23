@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Service("accountService")
-@Component
 public class AccountService {
     @Autowired
     private AccountRepository repository;
