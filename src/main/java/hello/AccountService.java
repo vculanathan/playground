@@ -3,9 +3,7 @@ package hello;
 import java.util.List;
 import java.util.Optional;
 
-import entity.Account;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Service("accountService")
