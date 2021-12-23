@@ -7,6 +7,10 @@ buildscript {
     }
 }
 
+plugins {
+    id 'java-library'
+}
+
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
@@ -22,10 +26,19 @@ repositories {
     mavenCentral()
 }
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
 
 dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    runtimeOnly 'com.h2database:h2'
+    runtimeOnly 'org.postgresql:postgresql'
+    implementation 'jakarta.xml.bind:jakarta.xml.bind-api:2.3.2'
+    implementation 'org.glassfish.jaxb:jaxb-runtime:2.3.2'
+    implementation 'org.springframework:spring-context:5.1.4.RELEASE'
+    implementation 'org.springframework:spring-orm:5.1.4.RELEASE'
+    implementation 'org.springframework.data:spring-data-jpa:2.1.4.RELEASE'
+    implementation 'org.hibernate:hibernate-core:5.4.1.Final'
+
+     'mysql:mysql-connector-java:8.0.14'
     compile("org.springframework.boot:spring-boot-starter-web")
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile('com.jayway.jsonpath:json-path')
