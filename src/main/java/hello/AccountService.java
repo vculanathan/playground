@@ -13,7 +13,7 @@ public class AccountService {
 
     public void test() {
         // Save a new customer
-        Account newAccount = new Account("john", "john@gmail.com");
+        Account newAccount = new Account("john", "john@gmail.com", "password", 1,1);
         repository.save(newAccount);
 
         // Find a customer by ID

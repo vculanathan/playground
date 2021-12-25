@@ -1,8 +1,6 @@
 package hello;
 
 import javax.persistence.*;
-import java.sql.Date;
-import java.time.Instant;
 
 @Entity
 @Table(name = "accounts", schema = "public")
@@ -18,25 +16,34 @@ public class Account {
     private long lastLogin;
 
     public Account() {
-
     }
-    public Account(String username, String email) {
+    public Account(String username, String email, String password, long createdOn, long lastLogin) {
         this.username = username;
         this.email = email;
-        this.createdOn = Instant.now().toEpochMilli();
-        this.lastLogin = Instant.now().toEpochMilli();
-        this.password = "password";
+        this.password = password;
+        this.createdOn = createdOn;
+        this.lastLogin = lastLogin;
     }
 
     @Override
     public String toString() {
         return String.format(
                 "Account[userId=%d, username='%s', email='%s, createdOn=%s, lastLogin=%s']",
-                userId, username, email, createdOn, lastLogin);
+                userId, getUsername(), getEmail(), createdOn, lastLogin);
     }
 
     public Long getUserId() {
         return userId;
+    }
+
+
+
+    public long getCreatedOn() {
+        return createdOn;
+    }
+
+    public long getLastLogin() {
+        return lastLogin;
     }
 
     public String getUsername() {
@@ -47,15 +54,20 @@ public class Account {
         this.username = username;
     }
 
+
     public String getPassword() {
         return password;
     }
 
-    public long getCreatedOn() {
-        return createdOn;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public long getLastLogin() {
-        return lastLogin;
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
